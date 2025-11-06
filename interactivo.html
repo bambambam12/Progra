@@ -1,0 +1,331 @@
+/Programador Brandon Nava Gomez 5C MPR
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactivo de Vegito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            flex-direction: column;
+            align-items: center;
+        }
+        #header {
+            background-color: #74e651;
+            border-radius: 10px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 900px;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            margin: 8px;
+        }
+        .container {
+            display: flex;
+            gap: 10px;
+            max-width: 900px;
+        }
+        .barra {
+            padding: 10px;
+            margin: 5px;
+            background: aqua;
+            flex: 3;
+            border-radius: 10px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+        .image-section {
+            position: relative;
+            width: 400px;
+            height: 450px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #eee;
+            margin-top: 10px;
+        }
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .info-header {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #eee;
+        }
+        .hotspot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #0015ff80;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            transition: transform 0.1s;
+            z-index: 10;
+        }
+        .hotspot:hover {
+            transform: scale(1.2);
+            background-color: #d9534f;
+        }
+        #hotspot-1 {
+            top: 100px;
+            left: 180px;
+        }
+        #hotspot-2 {
+            top: 100px;
+            left: 100px;
+        }
+        #hotspot-3 {
+            top: 50px;
+            left: 170px;
+        }
+        .contenido {
+            padding: 10px;
+            border-radius: 10px;
+            background: rgb(251, 241, 100);
+            margin: 5px;
+            flex: 1 150px;
+            min-width: 350px;
+        }
+        .subcontenido2 {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .proyecto {
+            height: 150px;
+            max-width: 150px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .proyecto img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .info-details {
+            display: none;
+        }
+        #footer {
+            background-color: white;
+            width: 900px;
+            height: 80px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        }
+        #prueba {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.2s;
+        }
+        #prueba:hover {
+            background-color: #0056b3;
+        }
+        .resultado-area {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+            display: none;
+        }
+        .calificacion-texto {
+            font-size: 2em;
+            font-weight: bold;
+            color: red;
+            margin-top: 5px;
+        }
+        #resultado-imagen {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>INTERACTIVO DE SUPER VEGITO</h1>
+    </div>
+
+    <div class="container">
+        <div id="seccion">
+            <div class="barra">
+                <div class="image-section">
+                    <img src="Imagenes/vegito.png" alt="Vegito con puntos de información">
+
+                    <div class="hotspot" id="hotspot-1" onclick="showInfo('info-1')">1</div>
+                    <div class="hotspot" id="hotspot-2" onclick="showInfo('info-2')">2</div>
+                    <div class="hotspot" id="hotspot-3" onclick="showInfo('info-3')">3</div>
+                </div>
+            </div>
+
+            <div class="contenido">
+                <div class="subcontenido1">
+                    <h2 id="titulo-info">Selecciona un elemento</h2>
+                    <p id="texto-info">Haz clic en el número (1, 2 o 3) sobre la imagen de Vegito para ver sus detalles.</p>
+                </div>
+                
+                <div class="subcontenido2">
+                    <div class="proyecto">
+                        <img id="imagen-info" src="Imagenes/vegito.png" alt="Imagen info" style="width:100%; height:100%; object-fit: contain; border-radius:10px;">
+                    </div>
+                </div>
+                
+                <div class="info-details">
+                    <div class="item-info" id="info-1">
+                        <h3>ARETES (Potara)</h3>
+                        <p>Permiten la fusión entre Goku y Vegeta, creando a Vegito, una entidad más fuerte que la suma de sus partes. Son un elemento clave para la fusión definitiva.</p>
+                    </div>
+                    <div class="item-info" id="info-2">
+                        <h3>KAMEHAMEHA</h3>
+                        <p>Vegito utiliza un Kamehameha mucho más fuerte y destructivo debido a su combinación de poderes, capaz de causar grandes destrozos a sus enemigos.</p>
+                    </div>
+                    <div class="item-info" id="info-3">
+                        <h3>SUPER SAIYAN</h3>
+                        <p>Vegito, al igual que Goku y Vegeta, puede transformarse en Super Saiyan, lo que le otorga un poder gigantesco y un aumento exponencial de sus habilidades.</p>
+                    </div>
+                </div>
+
+                <div id="resultado" class="resultado-area">
+                    <h3>Tu calificación es:</h3>
+                    <span id="calif" class="calificacion-texto">0/5</span>
+                    <img id="resultado-imagen" src="" alt="Resultado de la Prueba" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="prueba" onclick="startTest()">INICIAR PRUEBA DE CONOCIMIENTOS</div>
+    </div>
+
+    <script>
+        const infoMap = {
+            'info-1': { 
+                titulo: 'ARETES (Potara)', 
+                texto: 'Permiten la fusión entre Goku y Vegeta, creando a Vegito, una entidad más fuerte que la suma de sus partes. Son un elemento clave para la fusión definitiva.',
+                imagen: 'Imagenes/arete.jpg'
+            },
+            'info-2': { 
+                titulo: 'KAMEHAMEHA', 
+                texto: 'Vegito utiliza un Kamehameha mucho más fuerte y destructivo debido a su combinación de poderes, capaz de causar grandes destrozo a sus rivales como a Majin Buu o Zamasu en el arco de Dragon Ball Super (Arco del futuro de Trunk).',
+                imagen: 'Imagenes/kame.jpg'
+            },
+            'info-3': { 
+                titulo: 'SUPER SAIYAN', 
+                texto: 'Vegito, al igual que Goku y Vegeta, puede transformarse en Super Saiyan e Super Saiyan Blue (Ki divino) lo que hace a este ser aun mas poderoso, lo que le otorga un poder gigantesco y un aumento exponencial de sus habilidades.',
+                imagen: 'Imagenes/pelo.png'
+            }
+        };
+
+        function showInfo(infoId) {
+            const info = infoMap[infoId];
+            
+            document.getElementById('titulo-info').textContent = info.titulo;
+            document.getElementById('texto-info').textContent = info.texto;
+            document.getElementById('imagen-info').setAttribute('src', info.imagen);
+        }
+
+        function startTest() {
+            let puntaje = 0;
+            const totalPreguntas = 5;
+
+            alert("¡Bienvenidos a la prueba de conocimientos de Super Vegito! Usa la letra A o B para responder las preguntas :).");
+
+            let r1 = prompt(
+                "1. ¿Cómo mejora la fusión de Goku y Vegeta mediante los aretes Pothala en comparación con la Danza de la Fusión (Gogeta)?\n\n" +
+                "A: Los aretes Pothala proporcionan un aumento de poder mucho mayor y no requieren sincronización exacta.\n" +
+                "B: La Danza de la Fusión es más poderosa porque no tiene límite de tiempo."
+            );
+            if (r1 && r1.trim().toLowerCase() === 'a') {
+                puntaje += 1;
+            }
+
+            let r2 = prompt(
+                "2. ¿Qué diferencia existe entre el Kamehameha de Super Vegito y el de Goku en términos de poder y destructividad?\n\n" +
+                "A: El Kamehameha de Super Vegito es igual de fuerte que el de Goku en su forma base.\n" +
+                "B: El Kamehameha de Super Vegito es más potente y destructivo, gracias a la fusión de Goku y Vegeta."
+            );
+            if (r2 && r2.trim().toLowerCase() === 'b') {
+                puntaje += 1;
+            }
+
+            let r3 = prompt(
+                "3. ¿De qué manera la transformación en Super Saiyan amplifica el poder de Super Vegito durante sus batallas con sus rivales?\n\n" +
+                "A: La transformación aumenta enormemente su poder, fuerza y resistencia.\n" +
+                "B: La transformación en Super Saiyan no afecta a Super Vegito, ya que ya es muy fuerte por la fusión."
+            );
+            if (r3 && r3.trim().toLowerCase() === 'a') {
+                puntaje += 1;
+            }
+
+            let r4 = prompt(
+                "4. ¿Qué ventajas estratégicas obtiene Super Vegito gracias a su fusión y la capacidad de ejecutar un Kamehameha más potente?\n\n" +
+                "A: No tiene ventajas estratégicas; su Kamehameha es igual al de Goku.\n" +
+                "B: Super Vegito tiene mejor control y precisión al ejecutar el Kamehameha."
+            );
+            if (r4 && r4.trim().toLowerCase() === 'b') { 
+                puntaje += 1;
+            }
+
+            let r5 = prompt(
+                "5. ¿Por qué la fusión de Goku y Vegeta crea a un luchador mucho más fuerte que la combinación de sus poderes individuales en su forma base o Super Saiyan?\n\n" +
+                "A: La fusión combina sus habilidades y energías vitales, lo que crea un poder mucho mayor.\n" +
+                "B: La fusión no aumenta el poder, ya que sus habilidades no se combinan significativamente."
+            );
+            if (r5 && r5.trim().toLowerCase() === 'a') {
+                puntaje += 1;
+            }
+            
+            const resultadoImg = document.getElementById('resultado-imagen');
+
+            if (puntaje >= 4) {
+                resultadoImg.src = 'Imagenes/tabien.jpg';
+                resultadoImg.alt = 'Calificación bien';
+            } else {
+                resultadoImg.src = 'Imagenes/tamal.jpg';
+                resultadoImg.alt = 'Calificación mal';
+            }
+
+            document.getElementById('calif').textContent = `${puntaje}/${totalPreguntas}`;
+            document.getElementById('resultado').style.display = 'block';
+            resultadoImg.style.display = 'block';
+
+            alert(`PRUEBA TERMINADA.\n\nTu puntuación final es: ${puntaje} de ${totalPreguntas}.`);
+        }
+    </script>
+
+</body>
+</html>
