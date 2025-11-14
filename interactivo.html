@@ -1,4 +1,5 @@
 /Programador Brandon Nava Gomez 5C MPR
+/Emmanuel cambio las rutas de imagen ya que ninguna imagen se estaba mostrando en pantalla 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -183,7 +184,7 @@
         <div id="seccion">
             <div class="barra">
                 <div class="image-section">
-                    <img src="Imagenes/vegito.png" alt="Vegito con puntos de información">
+                    <img src="vegito.png" alt="Vegito con puntos de información">
 
                     <div class="hotspot" id="hotspot-1" onclick="showInfo('info-1')">1</div>
                     <div class="hotspot" id="hotspot-2" onclick="showInfo('info-2')">2</div>
@@ -199,7 +200,7 @@
                 
                 <div class="subcontenido2">
                     <div class="proyecto">
-                        <img id="imagen-info" src="Imagenes/vegito.png" alt="Imagen info" style="width:100%; height:100%; object-fit: contain; border-radius:10px;">
+                        <img id="imagen-info" src="vegito.png" alt="Imagen info" style="width:100%; height:100%; object-fit: contain; border-radius:10px;">
                     </div>
                 </div>
                 
@@ -236,17 +237,17 @@
             'info-1': { 
                 titulo: 'ARETES (Potara)', 
                 texto: 'Permiten la fusión entre Goku y Vegeta, creando a Vegito, una entidad más fuerte que la suma de sus partes. Son un elemento clave para la fusión definitiva.',
-                imagen: 'Imagenes/arete.jpg'
+                imagen: 'arete.jpg'
             },
             'info-2': { 
                 titulo: 'KAMEHAMEHA', 
                 texto: 'Vegito utiliza un Kamehameha mucho más fuerte y destructivo debido a su combinación de poderes, capaz de causar grandes destrozo a sus rivales como a Majin Buu o Zamasu en el arco de Dragon Ball Super (Arco del futuro de Trunk).',
-                imagen: 'Imagenes/kame.jpg'
+                imagen: 'kame.jpg'
             },
             'info-3': { 
                 titulo: 'SUPER SAIYAN', 
                 texto: 'Vegito, al igual que Goku y Vegeta, puede transformarse en Super Saiyan e Super Saiyan Blue (Ki divino) lo que hace a este ser aun mas poderoso, lo que le otorga un poder gigantesco y un aumento exponencial de sus habilidades.',
-                imagen: 'Imagenes/pelo.png'
+                imagen: 'pelo.png'
             }
         };
 
@@ -312,10 +313,10 @@
             const resultadoImg = document.getElementById('resultado-imagen');
 
             if (puntaje >= 4) {
-                resultadoImg.src = 'Imagenes/tabien.jpg';
+                resultadoImg.src = 'tabien.jpg';
                 resultadoImg.alt = 'Calificación bien';
             } else {
-                resultadoImg.src = 'Imagenes/tamal.jpg';
+                resultadoImg.src = 'tamal.jpg';
                 resultadoImg.alt = 'Calificación mal';
             }
 
